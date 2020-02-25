@@ -1,7 +1,5 @@
 package com.zodiac33.coder.lib;
 
-import androidx.annotation.NonNull;
-
 public final class NumberValue implements Value {
 
     private final double value;

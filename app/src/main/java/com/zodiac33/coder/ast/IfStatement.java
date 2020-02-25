@@ -1,7 +1,5 @@
 package com.zodiac33.coder.ast;
 
-import androidx.annotation.NonNull;
-
 public final class IfStatement implements Statement {
     private final Expression expression;
     private final Statement ifStatement, elseStatement;

@@ -1,0 +1,475 @@
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/hah\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Hello World!\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintLeft_toLeftOf=\"parent\"\r\n        app:layout_constraintRight_toRightOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_main.xml	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/res/layout/activity_main.xml	(date 1582637967600)
+@@ -4,16 +4,25 @@
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    tools:context=".MainActivity">
++    tools:context=".MainActivity"
++    tools:ignore = "MissingConstraints">
+ 
+-    <TextView
+-        android:id="@+id/hah"
++    <EditText
++        android:id="@+id/lol"
++        android:inputType="textMultiLine"
++    android:lines="8"
++    android:minLines="1"
++    android:gravity="top|left"
++    android:layout_height="wrap_content"
++    android:layout_width="match_parent"
++    android:scrollbars="vertical"
++    />
++
++    <Button
++        android:id="@+id/button"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Hello World!"
++        android:text="Button"
+         app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintLeft_toLeftOf="parent"
+-        app:layout_constraintRight_toRightOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
+-
++        app:layout_constraintEnd_toEndOf="parent" />
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/zodiac33/coder/Token.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder;\r\n\r\npublic class Token {\r\n\r\n    private TokenType type;\r\n    private String text;\r\n\r\n    Token () {\r\n\r\n    }\r\n\r\n    Token (TokenType type, String text) {\r\n        this.type = type;\r\n        this.text = text;\r\n    }\r\n\r\n    public TokenType getType() {\r\n        return type;\r\n    }\r\n\r\n    public String getText() {\r\n        return text;\r\n    }\r\n\r\n    public void setType(TokenType type) {\r\n        this.type = type;\r\n    }\r\n\r\n    public void setText(String text) {\r\n        this.text = text;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return type + \" \" + text;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/Token.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/Token.java	(date 1582639887523)
+Index: app/src/main/java/com/zodiac33/coder/TokenType.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder;\r\n\r\npublic enum TokenType {\r\n\r\n    NUMBER,\r\n    HEX_NUMBER,\r\n    WORD,\r\n    TEXT,\r\n\r\n    PRINT,\r\n\r\n    IF,\r\n    ELSE,\r\n\r\n    PLUS,\r\n    MINUS,\r\n    STAR,\r\n    SLASH,\r\n    EQ,\r\n    EQEQ,\r\n    EXCL,\r\n    EXCLEQ,\r\n    LT,\r\n    LTEQ,\r\n    GT,\r\n    GTEQ,\r\n\r\n    BAR,\r\n    BARBAR,\r\n    AMP,\r\n    AMPAMP,\r\n\r\n    LPAREN, // (\r\n    RPAREN, // )\r\n\r\n    EOF\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/TokenType.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/TokenType.java	(date 1582639887972)
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.zodiac33.coder\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\">\r\n        <activity android:name=\".MainActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/AndroidManifest.xml	(date 1582640695394)
+@@ -9,6 +9,7 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme">
++        <activity android:name=".AnswerActivity"/>
+         <activity android:name=".MainActivity">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+Index: app/src/main/java/com/zodiac33/coder/MyLanguage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder;\r\n\r\nimport android.os.Build;\r\nimport android.os.Environment;\r\n\r\nimport androidx.annotation.RequiresApi;\r\n\r\nimport com.zodiac33.coder.ast.Expression;\r\nimport com.zodiac33.coder.ast.Statement;\r\n\r\nimport java.util.List;\r\nimport java.util.Scanner;\r\n\r\npublic class MyLanguage {\r\n    public static void main(String[] args)  {\r\n//        final String input =\r\n//                \"print AUTHOR + \\\" \\\" + AVENUE\\n\" +\r\n//                        \"print \\\"\\\\n\\\"\\n\" +\r\n//                        \"if \\\"1\\\" = \\\"2\\\" print 1\\n\" +\r\n//                        \"else print \\\"OKDA\\\"\";\r\n//        final List<Token> tokens = new Lexer(input).tokenize();\r\n////        for (Token token :\r\n////                tokens) {\r\n////            System.out.println(token.toString());\r\n////        }\r\n//        final List<Statement> statements = new Parser(tokens).parse();\r\n//        for (Statement statement:statements) {\r\n//            statement.execute();\r\n//        }\r\n        AvenueSystem.out.print(\"Hi\\n\");\r\n        AvenueSystem.out.print(AvenueSystem.in.read());\r\n    }\r\n\r\n    public static String askInput() {\r\n        Scanner scan = new Scanner(System.in);\r\n        final String ask = scan.next();\r\n        return ask;\r\n    }\r\n\r\n    public static void PrintForSystem (String conclusion) {\r\n        System.out.print(conclusion);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/MyLanguage.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/MyLanguage.java	(date 1582639981396)
+@@ -1,11 +1,5 @@
+ package com.zodiac33.coder;
+ 
+-import android.os.Build;
+-import android.os.Environment;
+-
+-import androidx.annotation.RequiresApi;
+-
+-import com.zodiac33.coder.ast.Expression;
+ import com.zodiac33.coder.ast.Statement;
+ 
+ import java.util.List;
+@@ -13,22 +7,21 @@
+ 
+ public class MyLanguage {
+     public static void main(String[] args)  {
+-//        final String input =
+-//                "print AUTHOR + \" \" + AVENUE\n" +
+-//                        "print \"\\n\"\n" +
+-//                        "if \"1\" = \"2\" print 1\n" +
+-//                        "else print \"OKDA\"";
+-//        final List<Token> tokens = new Lexer(input).tokenize();
+-////        for (Token token :
+-////                tokens) {
+-////            System.out.println(token.toString());
+-////        }
+-//        final List<Statement> statements = new Parser(tokens).parse();
+-//        for (Statement statement:statements) {
+-//            statement.execute();
++        final String input =
++                "print AUTHOR + \" \" + AVENUE\n" +
++                        "print \"\\n\"\n" +
++                        "if \"1\" = \"2\" print \"True\"\n" +
++                        "else print \"False\"";
++        final List<Token> tokens = new Lexer(input).tokenize();
++//        for (Token token :
++//                tokens) {
++//            System.out.println(token.toString());
+ //        }
+-        AvenueSystem.out.print("Hi\n");
+-        AvenueSystem.out.print(AvenueSystem.in.read());
++        final List<Statement> statements = new Parser(tokens).parse();
++        for (Statement statement:statements) {
++            statement.execute();
++        }
++        System.out.println (AvenueSystem.conclusion);
+     }
+ 
+     public static String askInput() {
+Index: app/src/main/java/com/zodiac33/coder/Parser.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder;\r\n\r\nimport com.zodiac33.coder.ast.AssignmentStatement;\r\nimport com.zodiac33.coder.ast.BinaryExpression;\r\nimport com.zodiac33.coder.ast.ConditionalExpression;\r\nimport com.zodiac33.coder.ast.ConstantExpression;\r\nimport com.zodiac33.coder.ast.Expression;\r\nimport com.zodiac33.coder.ast.IfStatement;\r\nimport com.zodiac33.coder.ast.ValueExpression;\r\nimport com.zodiac33.coder.ast.PrintStatement;\r\nimport com.zodiac33.coder.ast.Statement;\r\nimport com.zodiac33.coder.ast.UnaryExpression;\r\nimport com.zodiac33.coder.lib.NumberValue;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic final class Parser {\r\n\r\n    private static final Token EOF = new Token(TokenType.EOF, \"\");\r\n\r\n    private final List<Token> tokens;\r\n    private final int size;\r\n\r\n    private int pos;\r\n\r\n    public Parser(List<Token> tokens) {\r\n        this.tokens = tokens;\r\n        size = tokens.size();\r\n    }\r\n\r\n    public List<Statement> parse() {\r\n        final List<Statement> result = new ArrayList<>();\r\n        while (!match(TokenType.EOF)) {\r\n            result.add(statement());\r\n        }\r\n        return result;\r\n    }\r\n\r\n    private Statement statement () {\r\n        if (match(TokenType.PRINT)) {\r\n            return new PrintStatement(expression());\r\n        }\r\n        if (match(TokenType.IF))\r\n            return ifElse();\r\n        return assignmentStatement ();\r\n    }\r\n\r\n    private Statement assignmentStatement () {\r\n        final Token current = get(0);\r\n        if (current.getType()==TokenType.WORD && get(1).getType()==TokenType.EQ) {\r\n            match(TokenType.WORD);\r\n            final String variable = current.getText();\r\n            match(TokenType.EQ);\r\n            return new AssignmentStatement(variable, expression());\r\n        }\r\n        throw new RuntimeException(\"Unknown statement\");\r\n    }\r\n\r\n    private Statement ifElse () {\r\n        final Expression condition = expression();\r\n        final Statement ifStatement = statement();\r\n        final Statement elseStatement;\r\n        if (match(TokenType.ELSE)) {\r\n            elseStatement = statement();\r\n        } else {\r\n            elseStatement = null;\r\n        }\r\n        return new IfStatement(condition, ifStatement, elseStatement);\r\n    }\r\n\r\n\r\n    private Expression expression() {\r\n        return conditional();\r\n    }\r\n\r\n    private Expression conditional () {\r\n        Expression result = additive();\r\n\r\n        while (true) {\r\n            if (match(TokenType.EQ)) {\r\n                result = new ConditionalExpression('=', result, additive());\r\n                continue;\r\n            }\r\n            if (match(TokenType.LT)) {\r\n                result = new ConditionalExpression('<', result, additive());\r\n                continue;\r\n            }\r\n            if (match(TokenType.GT)) {\r\n                result = new ConditionalExpression('>', result, additive());\r\n                continue;\r\n            }\r\n            break;\r\n        }\r\n\r\n        return result;\r\n    }\r\n\r\n    private Expression additive() {\r\n        Expression result = multiplicative();\r\n\r\n        while (true) {\r\n            if (match(TokenType.PLUS)) {\r\n                result = new BinaryExpression('+', result, multiplicative());\r\n                continue;\r\n            }\r\n            if (match(TokenType.MINUS)) {\r\n                result = new BinaryExpression('-', result, multiplicative());\r\n                continue;\r\n            }\r\n            break;\r\n        }\r\n\r\n        return result;\r\n    }\r\n\r\n    private Expression multiplicative() {\r\n        Expression result = unary();\r\n\r\n        while (true) {\r\n            // 2 * 6 / 3\r\n            if (match(TokenType.STAR)) {\r\n                result = new BinaryExpression('*', result, unary());\r\n                continue;\r\n            }\r\n            if (match(TokenType.SLASH)) {\r\n                result = new BinaryExpression('/', result, unary());\r\n                continue;\r\n            }\r\n            break;\r\n        }\r\n\r\n        return result;\r\n    }\r\n\r\n    private Expression unary() {\r\n        if (match(TokenType.MINUS)) {\r\n            return new UnaryExpression('-', primary());\r\n        }\r\n        if (match(TokenType.PLUS)) {\r\n            return primary();\r\n        }\r\n        return primary();\r\n    }\r\n\r\n    private Expression primary() {\r\n        final Token current = get(0);\r\n        if (match(TokenType.NUMBER)) {\r\n            return new ValueExpression(Double.parseDouble(current.getText()));\r\n        }\r\n        if (match(TokenType.WORD)) {\r\n            return new ConstantExpression(current.getText());\r\n        }\r\n        if (match(TokenType.TEXT)) {\r\n            return new ValueExpression(current.getText());\r\n        }\r\n        if (match(TokenType.HEX_NUMBER)) {\r\n            return new ValueExpression(Long.parseLong(current.getText(), 16));\r\n        }\r\n        if (match(TokenType.LPAREN)) {\r\n            Expression result = expression();\r\n            match(TokenType.RPAREN);\r\n            return result;\r\n        }\r\n        throw new RuntimeException(\"Unknown expression\");\r\n    }\r\n\r\n    private boolean match(TokenType type) {\r\n        final Token current = get(0);\r\n        if (type != current.getType()) return false;\r\n        pos++;\r\n        return true;\r\n    }\r\n\r\n    private Token get(int relativePosition) {\r\n        final int position = pos + relativePosition;\r\n        if (position >= size) return EOF;\r\n        return tokens.get(position);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/Parser.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/Parser.java	(date 1582639887586)
+@@ -10,7 +10,6 @@
+ import com.zodiac33.coder.ast.PrintStatement;
+ import com.zodiac33.coder.ast.Statement;
+ import com.zodiac33.coder.ast.UnaryExpression;
+-import com.zodiac33.coder.lib.NumberValue;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+Index: app/src/main/java/com/zodiac33/coder/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\nimport android.widget.TextView;\r\n\r\nimport com.zodiac33.coder.ast.Expression;\r\n\r\nimport java.util.List;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    TextView text;\r\n    String its = \"\";\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n        text = findViewById(R.id.hah);\r\n        final String input2 = \"2 + 2 * #f\";\r\n        final List<Token> tokens = new Lexer(input2).tokenize();\r\n//        final List<Expression> expressions = new Parser(tokens).parse();\r\n//        for (Expression expr : expressions) {\r\n//            its += (expr + \" = \" + (int) expr.eval()) + \"\\n\";\r\n//        }\r\n//        text.setText(its);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/MainActivity.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/MainActivity.java	(date 1582640278665)
+@@ -2,29 +2,37 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
++import android.view.View;
++import android.widget.Button;
+ import android.widget.TextView;
+ 
+-import com.zodiac33.coder.ast.Expression;
++import com.zodiac33.coder.ast.Statement;
+ 
+ import java.util.List;
+ 
+ public class MainActivity extends AppCompatActivity {
+ 
+     TextView text;
+-    String its = "";
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+-        text = findViewById(R.id.hah);
+-        final String input2 = "2 + 2 * #f";
+-        final List<Token> tokens = new Lexer(input2).tokenize();
+-//        final List<Expression> expressions = new Parser(tokens).parse();
+-//        for (Expression expr : expressions) {
+-//            its += (expr + " = " + (int) expr.eval()) + "\n";
+-//        }
+-//        text.setText(its);
++        text = findViewById(R.id.lol);
++        final String input = text.getText ().toString ();
++        final List<Token> tokens = new Lexer(input).tokenize();
++        final List<Statement> statements = new Parser(tokens).parse();
++        for (Statement statement:statements) {
++            statement.execute();
++        }
++        ((Button) findViewById (R.id.button)).setOnClickListener (new View.OnClickListener ( ) {
++            @Override
++            public void onClick ( View v ) {
++                Intent i = new Intent(MainActivity.this, AnswerActivity.class);
++                startActivity (i);
++            }
++        });
+     }
+ }
+Index: app/src/main/java/com/zodiac33/coder/Lexer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\n\r\npublic final class Lexer {\r\n\r\n    private static final String OPERATOR_CHARS = \"+-*/()=<>\";\r\n    private static final TokenType[] OPERATOR_TOKENS = {\r\n            TokenType.PLUS, TokenType.MINUS,\r\n            TokenType.STAR, TokenType.SLASH,\r\n            TokenType.LPAREN, TokenType.RPAREN,\r\n            TokenType.EQ, TokenType.LT, TokenType.GT\r\n    };\r\n\r\n    private final String input;\r\n    private final int length;\r\n\r\n    private final List<Token> tokens;\r\n\r\n    private int pos;\r\n\r\n    public Lexer(String input) {\r\n        this.input = input;\r\n        length = input.length();\r\n\r\n        tokens = new ArrayList<>();\r\n    }\r\n\r\n    public List<Token> tokenize() {\r\n        while (pos < length) {\r\n            final char current = peek(0);\r\n            if (Character.isDigit(current)) tokenizeNumber();\r\n            else if (Character.isLetter(current)) tokenizeLetter();\r\n            else if (current == '#') {\r\n                next();\r\n                tokenizeHexNumber();\r\n            }\r\n            else if (current == '\"') {\r\n                tokenizeText();\r\n            }\r\n            else if (OPERATOR_CHARS.indexOf(current) != -1) {\r\n                tokenizeOperator();\r\n            } else {\r\n                // whitespaces\r\n                next();\r\n            }\r\n        }\r\n        return tokens;\r\n    }\r\n\r\n    private void tokenizeNumber() {\r\n        final StringBuilder buffer = new StringBuilder();\r\n        char current = peek(0);\r\n        while (true) {\r\n            if (current == '.') {\r\n                if (buffer.indexOf(\".\") != -1) throw new RuntimeException(\"Invalid float number!\");\r\n            } else if (!Character.isDigit(current)) break;\r\n            buffer.append(current);\r\n            current = next();\r\n        }\r\n        addToken(TokenType.NUMBER, buffer.toString());\r\n    }\r\n\r\n    private void tokenizeHexNumber() {\r\n        final StringBuilder buffer = new StringBuilder();\r\n        char current = peek(0);\r\n        while (Character.isDigit(current) || isHexNumber(current)) {\r\n            buffer.append(current);\r\n            current = next();\r\n        }\r\n        addToken(TokenType.HEX_NUMBER, buffer.toString());\r\n    }\r\n\r\n    private static boolean isHexNumber(char current) {\r\n        return \"abcdef\".indexOf(Character.toLowerCase(current)) != -1;\r\n    }\r\n\r\n    private void tokenizeOperator() {\r\n        final int position = OPERATOR_CHARS.indexOf(peek(0));\r\n        addToken(OPERATOR_TOKENS[position]);\r\n        next();\r\n    }\r\n\r\n    private void tokenizeLetter() {\r\n        final StringBuilder buffer = new StringBuilder();\r\n        char current = peek(0);\r\n        while (true) {\r\n            if (!Character.isLetterOrDigit(current) && current != '_' && current != '$') break;\r\n            buffer.append(current);\r\n            current = next();\r\n        }\r\n        final String word = buffer.toString();\r\n        switch (word) {\r\n            case \"print\": addToken(TokenType.PRINT); break;\r\n            case \"if\": addToken(TokenType.IF); break;\r\n            case \"else\": addToken(TokenType.ELSE); break;\r\n            default: addToken(TokenType.WORD, word); break;\r\n        }\r\n    }\r\n\r\n    private void tokenizeText() {\r\n        next();\r\n        final StringBuilder buffer = new StringBuilder();\r\n        char current = peek(0);\r\n        while (true) {\r\n            if (current == '\\\\') {\r\n                current = next();\r\n                switch (current) {\r\n                    case '\"': current=next(); buffer.append('\"'); continue;\r\n                    case 'n': current=next(); buffer.append('\\n'); continue;\r\n                    case 't': current=next(); buffer.append('\\t'); continue;\r\n                }\r\n                buffer.append('\\\\');\r\n                continue;\r\n            }\r\n            if (current == '\"') break;\r\n            buffer.append(current);\r\n            current = next();\r\n        }\r\n        next();\r\n        addToken(TokenType.TEXT, buffer.toString());\r\n    }\r\n\r\n    private char next() {\r\n        pos++;\r\n        return peek(0);\r\n    }\r\n\r\n    private char peek(int relativePosition) {\r\n        final int position = pos + relativePosition;\r\n        if (position >= length) return '\\0';\r\n        return input.charAt(position);\r\n    }\r\n\r\n    private void addToken(TokenType type) {\r\n        addToken(type, \"\");\r\n    }\r\n\r\n    private void addToken(TokenType type, String text) {\r\n        tokens.add(new Token(type, text));\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/Lexer.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/Lexer.java	(date 1582639887757)
+Index: app/src/main/res/layout/activity_answer.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_answer.xml	(date 1582637523466)
++++ app/src/main/res/layout/activity_answer.xml	(date 1582637523466)
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".AnswerActivity">
++
++    <TextView
++        android:id="@+id/textView"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="TextView"
++        tools:layout_editor_absoluteX="62dp"
++        tools:layout_editor_absoluteY="70dp" />
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/zodiac33/coder/AvenueSystem.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder;\r\n\r\npublic final class AvenueSystem {\r\n\r\n    public static class out {\r\n        public static void print (Object text) {\r\n            MyLanguage.PrintForSystem(((String) text));\r\n        }\r\n    }\r\n\r\n    public static class in {\r\n        public static String read () {\r\n            return MyLanguage.askInput();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/AvenueSystem.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/AvenueSystem.java	(date 1582639887414)
+@@ -2,9 +2,11 @@
+ 
+ public final class AvenueSystem {
+ 
++    public static String conclusion = "";
++
+     public static class out {
+         public static void print (Object text) {
+-            MyLanguage.PrintForSystem(((String) text));
++            conclusion += text;
+         }
+     }
+ 
+Index: app/src/main/java/com/zodiac33/coder/ast/ValueExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\nimport com.zodiac33.coder.lib.NumberValue;\r\nimport com.zodiac33.coder.lib.StringValue;\r\nimport com.zodiac33.coder.lib.Value;\r\n\r\npublic final class ValueExpression implements Expression {\r\n\r\n    private final Value value;\r\n\r\n    public ValueExpression(double value) {\r\n        this.value = new NumberValue(value);\r\n    }\r\n\r\n    public ValueExpression(String value) {\r\n        this.value = new StringValue(value);\r\n    }\r\n\r\n    @Override\r\n    public Value eval() {\r\n        return value;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return value.asString();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/ValueExpression.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/ValueExpression.java	(date 1582639887476)
+Index: app/src/main/java/com/zodiac33/coder/ast/PrintStatement.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\nimport com.zodiac33.coder.AvenueSystem;\r\n\r\npublic class PrintStatement implements Statement {\r\n    private final Expression expression;\r\n\r\n    public PrintStatement(Expression expression) {\r\n        this.expression = expression;\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        AvenueSystem.out.print(expression.eval());\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"print \" + expression;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/PrintStatement.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/PrintStatement.java	(date 1582639887929)
+@@ -11,7 +11,7 @@
+ 
+     @Override
+     public void execute() {
+-        AvenueSystem.out.print(expression.eval());
++        AvenueSystem.out.print(expression.eval()) ;
+     }
+ 
+     @Override
+Index: app/src/main/java/com/zodiac33/coder/AnswerActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/AnswerActivity.java	(date 1582639887367)
++++ app/src/main/java/com/zodiac33/coder/AnswerActivity.java	(date 1582639887367)
+@@ -0,0 +1,16 @@
++package com.zodiac33.coder;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++import android.widget.TextView;
++
++public class AnswerActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate ( Bundle savedInstanceState ) {
++        super.onCreate (savedInstanceState);
++        setContentView (R.layout.activity_answer);
++        ((TextView) findViewById (R.id.textView)).setText (AvenueSystem.conclusion);
++    }
++}
+Index: app/src/main/java/com/zodiac33/coder/ast/Statement.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\npublic interface Statement {\r\n    void execute ();\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/Statement.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/Statement.java	(date 1582639887804)
+Index: app/src/main/java/com/zodiac33/coder/ast/Expression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\nimport com.zodiac33.coder.lib.Value;\r\n\r\npublic interface Expression {\r\n    Value eval();\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/Expression.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/Expression.java	(date 1582639887726)
+Index: app/src/main/java/com/zodiac33/coder/ast/UnaryExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\nimport com.zodiac33.coder.lib.NumberValue;\r\nimport com.zodiac33.coder.lib.Value;\r\n\r\npublic final class UnaryExpression implements Expression {\r\n\r\n    private final Expression expr1;\r\n    private final char operation;\r\n\r\n    public UnaryExpression(char operation, Expression expr1) {\r\n        this.operation = operation;\r\n        this.expr1 = expr1;\r\n    }\r\n\r\n    @Override\r\n    public Value eval() {\r\n        switch (operation) {\r\n            case '-': return new NumberValue(-(expr1.eval()).asNumber());\r\n            case '+':\r\n            default:\r\n                return expr1.eval();\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return String.format(\"%c %s\", operation, expr1);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/UnaryExpression.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/UnaryExpression.java	(date 1582639888022)
+Index: app/src/main/java/com/zodiac33/coder/ast/ConstantExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\nimport com.zodiac33.coder.lib.Value;\r\nimport com.zodiac33.coder.lib.Variables;\r\n\r\npublic class ConstantExpression implements Expression {\r\n\r\n    private final String name;\r\n\r\n    public ConstantExpression (String name) {\r\n        this.name = name;\r\n    }\r\n\r\n    @Override\r\n    public Value eval() {\r\n        return Variables.get(name);\r\n    }\r\n\r\n    @Override\r\n    public String toString () {\r\n        //return Double.toString(this.eval());\r\n        return this.name;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/ConstantExpression.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/ConstantExpression.java	(date 1582639888072)
+Index: app/src/main/java/com/zodiac33/coder/ast/IfStatement.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\nimport androidx.annotation.NonNull;\r\n\r\npublic final class IfStatement implements Statement {\r\n    private final Expression expression;\r\n    private final Statement ifStatement, elseStatement;\r\n\r\n    public IfStatement(Expression expression, Statement ifStatement, Statement elseStatement) {\r\n        this.expression = expression;\r\n        this.ifStatement = ifStatement;\r\n        this.elseStatement = elseStatement;\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        final double result = expression.eval().asNumber();\r\n        if (result != 0) {\r\n            ifStatement.execute();\r\n        } else if (elseStatement != null) {\r\n            elseStatement.execute();\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        final StringBuilder result = new StringBuilder();\r\n        result.append(\"if \").append(expression).append(' ').append(ifStatement);\r\n        if (elseStatement != null) {\r\n            result.append(\"\\nelse\").append(elseStatement);\r\n        }\r\n        return result.toString();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/IfStatement.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/IfStatement.java	(date 1582639888002)
+@@ -1,7 +1,5 @@
+ package com.zodiac33.coder.ast;
+ 
+-import androidx.annotation.NonNull;
+-
+ public final class IfStatement implements Statement {
+     private final Expression expression;
+     private final Statement ifStatement, elseStatement;
+Index: app/src/main/java/com/zodiac33/coder/ast/BinaryExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\nimport com.zodiac33.coder.lib.NumberValue;\r\nimport com.zodiac33.coder.lib.StringValue;\r\nimport com.zodiac33.coder.lib.Value;\r\n\r\npublic final class BinaryExpression implements Expression {\r\n\r\n    private final Expression expr1, expr2;\r\n    private final char operation;\r\n\r\n    public BinaryExpression(char operation, Expression expr1, Expression expr2) {\r\n        this.operation = operation;\r\n        this.expr1 = expr1;\r\n        this.expr2 = expr2;\r\n    }\r\n\r\n    @Override\r\n    public Value eval() {\r\n        final Value value1 = expr1.eval();\r\n        final Value value2 = expr2.eval();\r\n\r\n        if (value1 instanceof StringValue || value2 instanceof StringValue) {\r\n            final String text1 = value1.asString();\r\n            switch (operation) {\r\n                case '*': if (value1 instanceof StringValue) {\r\n                    final int iterations = (int) value2.asNumber();\r\n                    final StringBuilder buffer = new StringBuilder();\r\n                    for (int i = 0; i < iterations; i++)\r\n                        buffer.append(text1);\r\n                    return new StringValue(buffer.toString());\r\n                }\r\n                case '-': case '/': throw new RuntimeException(\"ERROR STRING OPERATOR\");\r\n                case '+':\r\n                default:\r\n                    return new StringValue(text1 + value2.asString());\r\n            }\r\n        }\r\n\r\n        final double number1 = value1.asNumber();\r\n        final double number2 = value2.asNumber();\r\n        switch (operation) {\r\n            case '-': return new NumberValue(number1 - number2);\r\n            case '*': return new NumberValue(number1 * number2);\r\n            case '/': return new NumberValue(number1 / number2);\r\n            case '+':\r\n            default:\r\n                return new NumberValue(number1 + number2);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return String.format(\"(%s %c %s)\", expr1, operation, expr2);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/BinaryExpression.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/BinaryExpression.java	(date 1582639887492)
+Index: app/src/main/java/com/zodiac33/coder/ast/AssignmentStatement.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\nimport com.zodiac33.coder.lib.Value;\r\nimport com.zodiac33.coder.lib.Variables;\r\n\r\npublic final class AssignmentStatement implements Statement {\r\n\r\n    private final String variable;\r\n    private final Expression expression;\r\n\r\n    public AssignmentStatement(String variable, Expression expression) {\r\n        this.variable = variable;\r\n        this.expression = expression;\r\n    }\r\n\r\n    @Override\r\n    public void execute() {\r\n        final Value result = expression.eval();\r\n        Variables.set(this.variable, result);\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return String.format(\"%s = %s\", variable, expression);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/AssignmentStatement.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/AssignmentStatement.java	(date 1582639888112)
+Index: app/src/main/java/com/zodiac33/coder/ast/ConditionalExpression.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.ast;\r\n\r\nimport com.zodiac33.coder.lib.NumberValue;\r\nimport com.zodiac33.coder.lib.StringValue;\r\nimport com.zodiac33.coder.lib.Value;\r\n\r\npublic final class ConditionalExpression implements Expression {\r\n\r\n    private final Expression expr1, expr2;\r\n    private final char operation;\r\n\r\n    public ConditionalExpression(char operation, Expression expr1, Expression expr2) {\r\n        this.operation = operation;\r\n        this.expr1 = expr1;\r\n        this.expr2 = expr2;\r\n    }\r\n\r\n    @Override\r\n    public Value eval() {\r\n        final Value value1 = expr1.eval();\r\n        final Value value2 = expr2.eval();\r\n\r\n        if (value1 instanceof StringValue || value2 instanceof StringValue) {\r\n            final String text1 = value1.asString();\r\n            final String text2 = value2.asString();\r\n            switch (operation) {\r\n                case '>':\r\n                    return new NumberValue(text1.compareTo(text2) < 0);\r\n                case '<':\r\n                    return new NumberValue(text1.compareTo(text2) > 0);\r\n                case '=':\r\n                default:\r\n                    return new NumberValue(text1.equals(text2));\r\n            }\r\n        }\r\n\r\n        final double number1 = value1.asNumber();\r\n        final double number2 = value2.asNumber();\r\n        switch (operation) {\r\n            case '>': return new NumberValue(number1 < number2);\r\n            case '<': return new NumberValue(number1 > number2);\r\n            case '=':\r\n            default:\r\n                return new NumberValue(number1 == number2);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return String.format(\"(%s %c %s)\", expr1, operation, expr2);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/ast/ConditionalExpression.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/ast/ConditionalExpression.java	(date 1582639887851)
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1582636513886)
++++ .idea/vcs.xml	(date 1582636513886)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/java/com/zodiac33/coder/lib/Value.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.lib;\r\n\r\npublic interface Value {\r\n    double asNumber();\r\n    String asString();\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/lib/Value.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/lib/Value.java	(date 1582639887695)
+Index: app/src/main/java/com/zodiac33/coder/lib/StringValue.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.lib;\r\n\r\npublic final class StringValue implements Value {\r\n\r\n    private final String value;\r\n\r\n    public StringValue (String value) {\r\n        this.value = value;\r\n    }\r\n\r\n    @Override\r\n    public double asNumber() {\r\n        try {\r\n            return Double.parseDouble(value);\r\n        } catch (Exception e) {\r\n            return 0;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public String asString() {\r\n        return value;\r\n    }\r\n\r\n    @Override\r\n    public String toString () {\r\n        return asString();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/lib/StringValue.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/lib/StringValue.java	(date 1582639887648)
+Index: app/src/main/java/com/zodiac33/coder/lib/Variables.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.lib;\r\n\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\n\r\npublic final class Variables {\r\n\r\n    private static final Map<String, Value> variables;\r\n\r\n    static {\r\n        variables = new HashMap<>();\r\n        variables.put(\"PI\", new NumberValue(Math.PI));\r\n        variables.put(\"E\", new NumberValue(Math.E));\r\n        variables.put(\"AVENUE\", new NumberValue(14.01));\r\n        variables.put(\"AUTHOR\", new StringValue(\"zodiac33\"));\r\n    }\r\n\r\n    public static boolean isExists (String name) {\r\n        return variables.containsKey(name);\r\n    }\r\n\r\n    public static Value get (String name) {\r\n        if (!isExists(name)) return new NumberValue(0);\r\n        return variables.get(name);\r\n    }\r\n\r\n    public static void set(String variable, Value result) {\r\n        variables.put(variable, result);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/lib/Variables.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/lib/Variables.java	(date 1582639888134)
+Index: app/src/main/java/com/zodiac33/coder/lib/NumberValue.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder.lib;\r\n\r\nimport androidx.annotation.NonNull;\r\n\r\npublic final class NumberValue implements Value {\r\n\r\n    private final double value;\r\n\r\n    public NumberValue (double value) {\r\n        this.value = value;\r\n    }\r\n\r\n    public NumberValue (boolean value) {\r\n        this.value = value ? 1 : 0;\r\n    }\r\n\r\n    @Override\r\n    public double asNumber() {\r\n        return value;\r\n    }\r\n\r\n    @Override\r\n    public String asString() {\r\n        return Double.toString(value);\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return asString();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/zodiac33/coder/lib/NumberValue.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/main/java/com/zodiac33/coder/lib/NumberValue.java	(date 1582639887882)
+@@ -1,7 +1,5 @@
+ package com.zodiac33.coder.lib;
+ 
+-import androidx.annotation.NonNull;
+-
+ public final class NumberValue implements Value {
+ 
+     private final double value;
+Index: app/src/androidTest/java/com/zodiac33/coder/ExampleInstrumentedTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder;\r\n\r\nimport android.content.Context;\r\n\r\nimport androidx.test.platform.app.InstrumentationRegistry;\r\nimport androidx.test.ext.junit.runners.AndroidJUnit4;\r\n\r\nimport org.junit.Test;\r\nimport org.junit.runner.RunWith;\r\n\r\nimport static org.junit.Assert.*;\r\n\r\n/**\r\n * Instrumented test, which will execute on an Android device.\r\n *\r\n * @see <a href=\"http://d.android.com/tools/testing\">Testing documentation</a>\r\n */\r\n@RunWith(AndroidJUnit4.class)\r\npublic class ExampleInstrumentedTest {\r\n    @Test\r\n    public void useAppContext() {\r\n        // Context of the app under test.\r\n        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();\r\n\r\n        assertEquals(\"com.zodiac33.coder\", appContext.getPackageName());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/androidTest/java/com/zodiac33/coder/ExampleInstrumentedTest.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/androidTest/java/com/zodiac33/coder/ExampleInstrumentedTest.java	(date 1582639888042)
+Index: app/src/test/java/com/zodiac33/coder/ExampleUnitTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zodiac33.coder;\r\n\r\nimport org.junit.Test;\r\n\r\nimport static org.junit.Assert.*;\r\n\r\n/**\r\n * Example local unit test, which will execute on the development machine (host).\r\n *\r\n * @see <a href=\"http://d.android.com/tools/testing\">Testing documentation</a>\r\n */\r\npublic class ExampleUnitTest {\r\n    @Test\r\n    public void addition_isCorrect() {\r\n        assertEquals(4, 2 + 2);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/test/java/com/zodiac33/coder/ExampleUnitTest.java	(revision 792a55103b8881895160aea06e22c272ddb47cad)
++++ app/src/test/java/com/zodiac33/coder/ExampleUnitTest.java	(date 1582639887336)

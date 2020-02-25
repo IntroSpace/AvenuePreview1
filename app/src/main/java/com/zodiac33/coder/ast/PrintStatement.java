@@ -11,7 +11,7 @@ public class PrintStatement implements Statement {
 
     @Override
     public void execute() {
-        AvenueSystem.out.print(expression.eval());
+        AvenueSystem.out.print(expression.eval()) ;
     }
 
     @Override
